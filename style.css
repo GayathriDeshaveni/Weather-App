@@ -51,7 +51,7 @@ h1 {
 
 .search-box button {
   padding: 12px 20px;
-  background: #f4fc24;
+  background: #0f3460;
   color: white;
   border: 1px solid rgba(255,255,255,0.3);
   border-radius: 8px;
@@ -61,7 +61,7 @@ h1 {
 }
 
 .search-box button:hover {
-  background: #09fdd4;
+  background: #1a56db;
 }
 
 .weather-card {
