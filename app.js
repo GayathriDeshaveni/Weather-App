@@ -35,7 +35,8 @@ async function getWeather(city) {
     const icon = weatherIcons[weather.weather[0].main] || "🌤️";
 
     // Get one forecast per day (every 8th item = 24hrs)
-    const dailyForecasts = forecast.list.filter((_, index) => index % 8 === 0).slice(0, 5);
+  
+    const dailyForecasts = forecast.list.filter((_, index) => index % 8 === 0).slice(1, 6);
 
     const forecastHTML = dailyForecasts.map(day => {
       const date = new Date(day.dt * 1000);
