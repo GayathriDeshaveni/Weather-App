@@ -36,7 +36,14 @@ async function getWeather(city) {
 
     // Get one forecast per day (every 8th item = 24hrs)
   
-    const dailyForecasts = forecast.list.filter((_, index) => index % 8 === 0).slice(1, 6);
+    const today = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'short' });
+    const dailyForecasts = forecast.list
+  .filter((item) => {
+    const itemDate = new Date(item.dt * 1000).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' });
+    return itemDate !== today;
+  })
+  .filter((_, index) => index % 8 === 0)
+  .slice(0, 5);
 
     const forecastHTML = dailyForecasts.map(day => {
       const date = new Date(day.dt * 1000);
